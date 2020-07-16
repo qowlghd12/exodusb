@@ -1,0 +1,34 @@
+1. sql 검증
+2. 우리가 한 일 => 쿼리 셋팅
+3. 쓰는 로직 가지고 와야되요
+4. 통합 클래스
+5. 결과 확인
+
+
+select ejh.id, ejh.name, ejh.star, ejh.end, j.job_title
+from jobs j join
+(select e.employee_id id,e.last_name name, jobh.start_date star, jobh.end_date end
+from employees e join job_history jobh
+on e.employee_id = jobh.employee_id ) ejh
+on j.job_id = ejh.job_id
+where ejh.id = 104
+/
+
+우리꺼
+select e.last_name, j.job_title, jh.start_date, jh.end_date
+from job_history jh join jobs j
+on jh.job_id = j.job_id
+join employees e
+on e.employee_id = jh.employee_id
+where e.employee_id = '101' 
+
+Kochhar                                            97/09/21 01/10/27
+Kochhar                                            01/10/28 05/03/15
+De Haan                                            01/01/13 06/07/24
+Raphaely                                           06/03/24 07/12/31
+Kaufling                                           07/01/01 07/12/31
+Taylor                                             06/03/24 06/12/31
+Taylor                                             07/01/01 07/12/31
+Whalen                                             95/09/17 01/06/17
+Whalen                                             02/07/01 06/12/31
+Hartstein
